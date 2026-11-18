@@ -27,6 +27,7 @@ I have 5.3 years of overall IT experience, including 3+ years in software QA and
 I work across UI, API, database, and CI testing. I enjoy turning business rules into checks that catch real issues—and leave enough evidence for someone else to understand what happened.
 
 Looking for: SDET, QA Automation Engineer, or Software Test Engineer roles.(Location : ANY)
+
 🚀 Featured projects
 🛒 E-commerce End-to-End Automation Framework
 Repository · CI runs · README
