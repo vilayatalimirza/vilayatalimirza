@@ -71,6 +71,10 @@ Java automation combining Selenium UI tests, REST Assured examples, and isolated
 - Selenium WebDriver, TestNG, Maven, Page Object Model, explicit waits, reusable utilities, REST Assured, and JDBC.
 - Scope note: the API examples use Reqres, and the disposable MySQL database is not the database behind the public GreenKart demo.
 
+## 📚 Project index
+
+For a recruiter-friendly overview of each project's architecture, scope, and CI evidence, see the **[Portfolio Project Index](PROJECT_INDEX.md)**.
+
 ## 🧰 Technical toolkit
 
 | Area | Tools and practices |
