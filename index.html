@@ -1,0 +1,503 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#101a1b">
+  <meta name="description" content="Vilayat Ali Mirza is a QA Automation Engineer and SDET focused on Java, Selenium, Playwright, TypeScript, API testing and database validation. Explore practical automation projects and CI evidence.">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Vilayat Ali Mirza | QA Automation Engineer">
+  <meta property="og:description" content="Testing beyond the happy path. Explore three practical QA automation projects, architecture and CI evidence.">
+  <meta property="og:url" content="https://vilayatalimirza.github.io/vilayatalimirza/">
+  <link rel="canonical" href="https://vilayatalimirza.github.io/vilayatalimirza/">
+  <title>Vilayat Ali Mirza | QA Automation Engineer & SDET</title>
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      color-scheme: dark;
+      --bg: #101a1b;
+      --bg-soft: #142122;
+      --panel: #192829;
+      --panel-2: #1e3030;
+      --ink: #edf2e9;
+      --muted: #a7b6ad;
+      --line: rgba(218, 237, 223, .13);
+      --mint: #b7f09b;
+      --mint-strong: #91d982;
+      --orange: #ffad78;
+      --max: 1160px;
+      --mono: "DM Mono", "SFMono-Regular", Consolas, monospace;
+      --sans: "DM Sans", Inter, ui-sans-serif, system-ui, sans-serif;
+      --display: "Manrope", var(--sans);
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      background:
+        radial-gradient(ellipse at 85% 4%, rgba(112, 174, 125, .11), transparent 30rem),
+        radial-gradient(ellipse at 0% 36%, rgba(255, 173, 120, .05), transparent 28rem),
+        var(--bg);
+      color: var(--ink);
+      font-family: var(--sans);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+    a { color: inherit; text-decoration: none; }
+    .skip-link { position: fixed; z-index: 100; top: 10px; left: 10px; transform: translateY(-160%); background: var(--mint); color: #17241c; padding: 10px 14px; border-radius: 9px; font-weight: 700; }
+    .skip-link:focus { transform: translateY(0); }
+    a:focus-visible, button:focus-visible { outline: 2px solid var(--mint); outline-offset: 4px; }
+    .wrap { width: min(var(--max), calc(100% - 48px)); margin-inline: auto; }
+    .mono { font: 500 .73rem/1.5 var(--mono); letter-spacing: .09em; text-transform: uppercase; }
+    .eyebrow { color: var(--mint); display: flex; align-items: center; gap: 10px; }
+    .eyebrow::before { content: ""; width: 25px; height: 1px; background: var(--mint); }
+    .muted { color: var(--muted); }
+    .site-header { position: sticky; top: 0; z-index: 20; background: rgba(16, 26, 27, .82); backdrop-filter: blur(18px); border-bottom: 1px solid var(--line); }
+    .nav { min-height: 76px; display: flex; justify-content: space-between; align-items: center; gap: 24px; }
+    .brand { display: inline-flex; align-items: center; gap: 12px; font: 800 .94rem var(--display); letter-spacing: -.025em; }
+    .brand-mark { display: grid; place-items: center; width: 36px; height: 36px; border: 1px solid rgba(183,240,155,.42); border-radius: 11px; color: var(--mint); font: 500 .78rem var(--mono); }
+    .nav-links { display: flex; align-items: center; gap: 28px; color: var(--muted); font-size: .88rem; }
+    .nav-links a:hover { color: var(--ink); }
+    .nav-links .nav-cta { color: var(--bg); background: var(--mint); padding: 10px 16px; border-radius: 999px; font-weight: 700; }
+    .menu-toggle { display: none; background: transparent; color: var(--ink); border: 1px solid var(--line); border-radius: 9px; padding: 8px 10px; font-size: 1.1rem; }
+    .hero { padding: 100px 0 84px; min-height: 620px; display: grid; align-items: center; grid-template-columns: 1.1fr .9fr; gap: 56px; position: relative; }
+    .hero::before { content: ""; position: absolute; width: 430px; height: 430px; right: 4%; top: 15%; border-radius: 50%; background: radial-gradient(circle, rgba(183,240,155,.09), transparent 68%); filter: blur(8px); pointer-events: none; }
+    .hero > * { position: relative; z-index: 1; }
+    .hero h1 { font: 800 clamp(3rem, 6.2vw, 5.7rem)/1.02 var(--display); letter-spacing: -.075em; margin: 24px 0 22px; max-width: 760px; }
+    .hero h1 span { background: linear-gradient(100deg, #c8f7a5 0%, #91d982 56%, #ffbd8d 100%); color: transparent; -webkit-background-clip: text; background-clip: text; }
+    .hero-copy { color: #c0ccc3; font-size: 1.08rem; max-width: 620px; line-height: 1.8; }
+    .hero-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 34px; }
+    .button { display: inline-flex; align-items: center; justify-content: center; gap: 10px; padding: 13px 19px; border-radius: 999px; font-weight: 700; font-size: .9rem; border: 1px solid var(--line); transition: transform .2s ease, background .2s ease, border-color .2s ease; }
+    .button:hover { transform: translateY(-2px); }
+    .button.primary { background: var(--mint); color: #17241c; border-color: var(--mint); }
+    .button.secondary:hover { border-color: rgba(183,240,155,.6); }
+    .hero-note { display: flex; align-items: center; gap: 9px; color: var(--muted); font-size: .83rem; margin-top: 28px; }
+    .hero-note .dot { width: 7px; height: 7px; border-radius: 50%; background: var(--mint-strong); box-shadow: 0 0 0 5px rgba(145,217,130,.12); }
+    .hero-art { position: relative; min-height: 390px; display: grid; place-items: center; }
+    .art-orbit { position: absolute; width: min(100%, 420px); aspect-ratio: 1; border: 1px solid rgba(183,240,155,.15); border-radius: 50%; transform: rotate(-20deg) scaleY(.78); animation: orbit-breathe 9s ease-in-out infinite; }
+    .hero-art::before, .hero-art::after { content: ""; position: absolute; width: 9px; height: 9px; border-radius: 50%; background: var(--mint); box-shadow: 0 0 22px rgba(183,240,155,.75); }
+    .hero-art::before { top: 17%; left: 18%; }
+    .hero-art::after { bottom: 15%; right: 13%; width: 6px; height: 6px; background: var(--orange); box-shadow: 0 0 20px rgba(255,173,120,.7); }
+    @keyframes orbit-breathe { 0%, 100% { transform: rotate(-20deg) scaleY(.78) scale(1); opacity: .8; } 50% { transform: rotate(-15deg) scaleY(.8) scale(1.025); opacity: 1; } }
+    .art-orbit::before, .art-orbit::after { content: ""; position: absolute; border: 1px solid rgba(183,240,155,.12); border-radius: 50%; inset: 12%; }
+    .art-orbit::after { inset: 26%; }
+    .art-core { position: relative; width: min(100%, 340px); background: linear-gradient(145deg, rgba(37,62,57,.96), rgba(24,40,41,.98)); border: 1px solid rgba(183,240,155,.28); border-radius: 24px; padding: 27px; box-shadow: 0 28px 90px rgba(0,0,0,.27); transform: rotate(3deg); }
+    .art-top { display: flex; justify-content: space-between; align-items: center; color: var(--muted); font: .68rem var(--mono); letter-spacing: .1em; text-transform: uppercase; }
+    .art-status { display: inline-flex; align-items: center; gap: 7px; color: var(--mint); }
+    .art-status::before { content: ""; width: 6px; height: 6px; border-radius: 50%; background: var(--mint); }
+    .art-core h2 { font: 700 1.5rem var(--display); letter-spacing: -.04em; margin: 28px 0 8px; }
+    .art-core p { font-size: .83rem; color: var(--muted); margin: 0 0 23px; }
+    .code-line { display: flex; align-items: center; gap: 11px; border-top: 1px solid var(--line); padding: 12px 0; font: .75rem var(--mono); }
+    .code-line .number { color: #6f8d7f; width: 18px; }
+    .code-line .code-green { color: var(--mint); }
+    .code-line .code-orange { color: var(--orange); }
+    .art-tag { position: absolute; background: #263b37; border: 1px solid rgba(183,240,155,.2); border-radius: 12px; padding: 10px 13px; font: .7rem var(--mono); color: var(--mint); box-shadow: 0 12px 40px rgba(0,0,0,.2); }
+    .tag-a { top: 17%; right: -1%; transform: rotate(5deg); }
+    .tag-b { bottom: 13%; left: -2%; transform: rotate(-5deg); color: var(--orange); border-color: rgba(255,173,120,.25); }
+    .stats { display: grid; grid-template-columns: repeat(3,1fr); gap: 1px; background: var(--line); border: 1px solid var(--line); border-radius: 18px; overflow: hidden; margin-bottom: 112px; }
+    .stat { background: rgba(20,33,34,.92); padding: 25px 28px; }
+    .stat strong { display: block; font: 800 2rem var(--display); letter-spacing: -.06em; color: var(--mint); }
+    .stat span { display: block; color: var(--muted); font-size: .82rem; margin-top: 4px; }
+    section { scroll-margin-top: 100px; }
+    .section-head { display: flex; align-items: end; justify-content: space-between; gap: 24px; margin-bottom: 34px; }
+    .section-head h2 { font: 800 clamp(2rem, 4vw, 3rem)/1.12 var(--display); letter-spacing: -.06em; margin: 13px 0 0; }
+    .section-head p { max-width: 440px; color: var(--muted); margin: 0; font-size: .93rem; }
+    .projects { padding-bottom: 112px; }
+    .project-grid { display: grid; grid-template-columns: repeat(2,1fr); gap: 18px; }
+    .project-card { position: relative; overflow: hidden; display: flex; flex-direction: column; min-height: 410px; background: linear-gradient(160deg, rgba(30,48,48,.98), rgba(22,37,38,.98)); border: 1px solid var(--line); border-radius: 20px; padding: 28px; transition: transform .22s ease, border-color .22s ease; }
+    .project-card:hover { transform: translateY(-4px); border-color: rgba(183,240,155,.37); box-shadow: 0 22px 60px rgba(0,0,0,.18); }
+    .project-card:hover .mini-visual { border-color: rgba(183,240,155,.3); }
+    .project-card, .project-side, .mini-visual { isolation: isolate; }
+    .project-card.featured { grid-column: span 2; min-height: 365px; display: grid; grid-template-columns: 1.15fr .85fr; gap: 32px; }
+    .project-card::after { content: ""; position: absolute; width: 250px; height: 250px; border-radius: 50%; border: 1px solid rgba(183,240,155,.08); right: -95px; top: -115px; pointer-events: none; }
+    .mini-visual { position: relative; min-height: 126px; overflow: hidden; border: 1px solid rgba(183,240,155,.13); border-radius: 13px; background: linear-gradient(125deg, rgba(8,19,19,.45), rgba(45,67,54,.32)); margin: 3px 0 21px; display: flex; align-items: center; justify-content: center; padding: 17px; }
+    .mini-visual::after { content: ""; position: absolute; inset: 0; background: linear-gradient(90deg, transparent, rgba(183,240,155,.035), transparent); transform: translateX(-100%); animation: scan 8s ease-in-out infinite; pointer-events: none; }
+    @keyframes scan { 0%, 50% { transform: translateX(-100%); } 85%, 100% { transform: translateX(100%); } }
+    .money-flow { width: 100%; display: grid; grid-template-columns: 1fr 34px 1fr 34px 1fr; gap: 5px; align-items: center; }
+    .flow-box { min-width: 0; padding: 12px 7px; text-align: center; border: 1px solid rgba(183,240,155,.2); border-radius: 9px; background: rgba(183,240,155,.055); }
+    .flow-box strong { display: block; color: #d9efcc; font: 500 .68rem var(--mono); }
+    .flow-box span { display: block; color: var(--muted); font-size: .61rem; margin-top: 4px; }
+    .flow-arrow { color: var(--mint); text-align: center; font: .95rem var(--mono); }
+    .flow-footer { position: absolute; bottom: 7px; left: 17px; right: 17px; display: flex; justify-content: space-between; color: #799186; font: .58rem var(--mono); letter-spacing: .07em; text-transform: uppercase; }
+    .stack-visual { display: grid; grid-template-columns: repeat(3,1fr); gap: 9px; width: 100%; }
+    .stack-tile { min-height: 79px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 8px; border: 1px solid rgba(183,240,155,.17); border-radius: 10px; background: rgba(183,240,155,.045); }
+    .stack-tile svg { width: 25px; height: 25px; stroke: var(--mint); fill: none; stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; }
+    .stack-tile:nth-child(2) svg { stroke: var(--orange); }
+    .stack-tile strong { font: .62rem var(--mono); color: #d9e8dc; letter-spacing: .04em; }
+    .stack-caption { position: absolute; bottom: 6px; left: 0; right: 0; text-align: center; color: #799186; font: .56rem var(--mono); letter-spacing: .08em; text-transform: uppercase; }
+    .visual-bars { display: flex; align-items: end; justify-content: center; gap: 7px; height: 92px; width: 100%; padding-bottom: 7px; }
+    .visual-bars span { display: block; width: 13%; max-width: 31px; border-radius: 5px 5px 2px 2px; background: linear-gradient(180deg, var(--mint), rgba(145,217,130,.16)); border: 1px solid rgba(183,240,155,.36); }
+    .visual-bars span:nth-child(1) { height: 38%; opacity: .55; }
+    .visual-bars span:nth-child(2) { height: 60%; opacity: .7; }
+    .visual-bars span:nth-child(3) { height: 82%; opacity: .85; }
+    .visual-bars span:nth-child(4) { height: 53%; }
+    .visual-bars span:nth-child(5) { height: 72%; opacity: .9; }
+    .project-meta { display: flex; flex-wrap: wrap; align-items: center; gap: 9px; margin-bottom: 19px; }
+    .project-number { font: .72rem var(--mono); color: var(--mint); }
+    .pill { border: 1px solid var(--line); border-radius: 999px; padding: 4px 9px; color: var(--muted); font: .64rem var(--mono); letter-spacing: .04em; text-transform: uppercase; }
+    .project-card h3 { font: 800 1.55rem/1.18 var(--display); letter-spacing: -.045em; margin: 0 0 13px; }
+    .project-card.featured h3 { font-size: 2.05rem; }
+    .project-card p { color: var(--muted); font-size: .91rem; margin: 0 0 19px; max-width: 580px; }
+    .metric-strip { display: flex; flex-wrap: wrap; gap: 9px; margin: 7px 0 19px; }
+    .metric { background: rgba(183,240,155,.08); color: #d2efc5; border: 1px solid rgba(183,240,155,.13); padding: 8px 11px; border-radius: 9px; font: .74rem var(--mono); }
+    .tech-list { display: flex; flex-wrap: wrap; gap: 7px; margin-top: auto; padding-top: 10px; }
+    .tech-list span { color: #c8d6ce; background: rgba(255,255,255,.045); border-radius: 6px; padding: 5px 8px; font-size: .72rem; }
+    .project-links { display: flex; flex-wrap: wrap; gap: 18px; margin-top: 24px; font-size: .84rem; font-weight: 700; }
+    .project-links a { color: var(--mint); }
+    .project-links a:hover { color: white; }
+    .project-side { align-self: stretch; display: flex; flex-direction: column; justify-content: center; padding: 26px; border: 1px solid rgba(183,240,155,.13); border-radius: 15px; background: rgba(9,19,19,.24); }
+    .side-label { color: var(--mint); font: .68rem var(--mono); text-transform: uppercase; letter-spacing: .1em; }
+    .side-value { font: 800 3.6rem/.95 var(--display); letter-spacing: -.08em; margin: 13px 0 8px; }
+    .side-caption { font-size: .79rem; color: var(--muted); }
+    .side-rule { height: 1px; background: var(--line); margin: 18px 0; }
+    .side-small { color: #c4d0c7; font-size: .78rem; }
+    .about { padding: 88px 0; border-block: 1px solid var(--line); background: rgba(20,33,34,.55); }
+    .about-grid { display: grid; grid-template-columns: .85fr 1.15fr; gap: 70px; align-items: start; }
+    .about-title { font: 800 clamp(2.1rem, 4vw, 3.2rem)/1.12 var(--display); letter-spacing: -.065em; margin: 14px 0 0; }
+    .about-copy { color: #c2cec5; font-size: 1rem; line-height: 1.85; }
+    .about-copy p { margin: 0 0 18px; }
+    .about-copy strong { color: var(--ink); }
+    .experience-row { display: grid; grid-template-columns: 130px 1fr; gap: 18px; padding: 18px 0; border-top: 1px solid var(--line); }
+    .experience-row .date { color: var(--mint); font: .69rem var(--mono); text-transform: uppercase; padding-top: 4px; }
+    .experience-row strong { display: block; font-size: .94rem; }
+    .experience-row span { display: block; color: var(--muted); font-size: .83rem; margin-top: 3px; }
+    .toolkit { padding: 112px 0; }
+    .toolkit-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 12px; margin-top: 34px; }
+    .tool-group { padding: 21px; border: 1px solid var(--line); border-radius: 15px; background: rgba(25,40,41,.63); }
+    .tool-group h3 { font: 700 .94rem var(--display); margin: 0 0 13px; }
+    .tool-group p { font-size: .82rem; color: var(--muted); margin: 0; line-height: 1.85; }
+    .principles { padding-bottom: 112px; }
+    .principle-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 14px; }
+    .principle { border-top: 1px solid rgba(183,240,155,.42); padding: 20px 5px 0 0; }
+    .principle .mono { color: var(--mint); }
+    .principle h3 { font: 700 1.05rem var(--display); margin: 12px 0 6px; }
+    .principle p { margin: 0; color: var(--muted); font-size: .86rem; max-width: 330px; }
+    .contact { padding: 72px 0 78px; background: #b7f09b; color: #15231b; }
+    .contact-inner { display: flex; align-items: center; justify-content: space-between; gap: 34px; }
+    .contact .eyebrow { color: #385c42; }
+    .contact .eyebrow::before { background: #385c42; }
+    .contact h2 { font: 800 clamp(2.3rem, 5vw, 4.2rem)/1.05 var(--display); letter-spacing: -.07em; max-width: 680px; margin: 15px 0 9px; }
+    .contact p { color: #385343; margin: 0; }
+    .contact .button { border-color: #17261d; color: #edf2e9; background: #17261d; white-space: nowrap; }
+    footer { padding: 23px 0; color: var(--muted); font-size: .78rem; }
+    .footer-inner { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 12px; }
+    .footer-links { display: flex; gap: 18px; }
+    .footer-links a:hover { color: var(--mint); }
+    @media (max-width: 880px) {
+      .hero { grid-template-columns: 1fr; gap: 10px; padding-top: 78px; }
+      .hero-art { min-height: 350px; max-width: 500px; width: 100%; margin-inline: auto; }
+      .project-card.featured { grid-template-columns: 1fr; }
+      .project-side { min-height: 230px; }
+      .toolkit-grid { grid-template-columns: repeat(2,1fr); }
+      .about-grid { gap: 35px; }
+    }
+    @media (max-width: 640px) {
+      .wrap { width: min(var(--max), calc(100% - 34px)); }
+      .nav { min-height: 66px; }
+      .menu-toggle { display: inline-flex; }
+      .nav-links { display: none; position: absolute; left: 0; right: 0; top: 66px; flex-direction: column; align-items: stretch; gap: 0; background: #142122; padding: 10px 22px 18px; border-bottom: 1px solid var(--line); }
+      .nav-links.open { display: flex; }
+      .nav-links a { padding: 12px 0; }
+      .nav-links .nav-cta { text-align: center; margin-top: 8px; padding: 11px 14px; }
+      .hero { padding: 65px 0 48px; min-height: 0; }
+      .hero h1 { font-size: clamp(3rem, 14vw, 4.4rem); }
+      .hero-copy { font-size: .98rem; }
+      .hero-art { min-height: 310px; }
+      .art-core { width: 290px; padding: 21px; }
+      .tag-a { right: 0; }
+      .tag-b { left: 0; }
+      .stats { margin-bottom: 82px; }
+      .stat { padding: 16px 12px; }
+      .stat strong { font-size: 1.6rem; }
+      .stat span { font-size: .69rem; line-height: 1.35; }
+      .section-head { display: block; }
+      .section-head p { margin-top: 15px; }
+      .projects, .toolkit { padding-bottom: 82px; }
+      .project-grid { grid-template-columns: 1fr; }
+      .project-card, .project-card.featured { grid-column: auto; padding: 23px; min-height: 0; }
+      .project-card.featured h3 { font-size: 1.75rem; }
+      .side-value { font-size: 3rem; }
+      .about { padding: 75px 0; }
+      .about-grid { grid-template-columns: 1fr; }
+      .experience-row { grid-template-columns: 100px 1fr; gap: 13px; }
+      .toolkit-grid { grid-template-columns: 1fr 1fr; gap: 9px; }
+      .tool-group { padding: 16px; }
+      .principles { padding-bottom: 80px; }
+      .principle-grid { grid-template-columns: 1fr; gap: 24px; }
+      .contact { padding: 60px 0; }
+      .contact-inner { display: block; }
+      .contact .button { margin-top: 24px; }
+    }
+    @media (max-width: 640px) {
+      .money-flow { grid-template-columns: 1fr 19px 1fr 19px 1fr; gap: 2px; }
+      .flow-box { padding: 10px 3px; }
+      .flow-box strong { font-size: .57rem; }
+      .flow-box span { font-size: .54rem; }
+      .stack-tile { min-height: 71px; }
+      .stack-tile strong { font-size: .55rem; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after { transition-duration: .01ms !important; animation-duration: .01ms !important; animation-iteration-count: 1 !important; }
+    }
+  </style>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Vilayat Ali Mirza",
+    "jobTitle": "QA Automation Engineer",
+    "url": "https://github.com/vilayatalimirza",
+    "sameAs": [
+      "https://github.com/vilayatalimirza",
+      "https://www.linkedin.com/in/vilayat-ali-mirza/"
+    ],
+    "knowsAbout": [
+      "Java", "Selenium WebDriver", "TestNG", "Playwright", "TypeScript",
+      "API Testing", "SQL", "JDBC", "MySQL", "GitHub Actions"
+    ]
+  }
+  </script>
+</head>
+<body id="top">
+  <a class="skip-link" href="#main-content">Skip to content</a>
+  <header class="site-header">
+    <div class="wrap nav">
+      <a class="brand" href="#top" aria-label="Vilayat Ali Mirza home">
+        <span class="brand-mark">VA</span><span>VILAYAT ALI MIRZA</span>
+      </a>
+      <button class="menu-toggle" aria-label="Toggle navigation" aria-expanded="false" aria-controls="primary-nav">☰</button>
+      <nav class="nav-links" id="primary-nav" aria-label="Primary navigation">
+        <a href="#projects">Projects</a>
+        <a href="#about">About</a>
+        <a href="#toolkit">Toolkit</a>
+        <a href="https://github.com/vilayatalimirza/vilayatalimirza/blob/main/PROJECT_INDEX.md">Project index ↗</a>
+        <a class="nav-cta" href="https://www.linkedin.com/in/vilayat-ali-mirza/" target="_blank" rel="noreferrer">Let’s connect ↗</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main-content" tabindex="-1">
+    <section class="wrap hero" aria-labelledby="hero-title">
+      <div>
+        <div class="eyebrow mono">QA AUTOMATION ENGINEER · SDET · INDIA</div>
+        <h1 id="hero-title">I test beyond<br>the <span>happy path.</span></h1>
+        <p class="hero-copy">I build automation that checks more than whether a button works. I care about business rules, data integrity, failure behaviour, and evidence that makes a result trustworthy.</p>
+        <div class="hero-actions">
+          <a class="button primary" href="#projects">Explore my work <span aria-hidden="true">↘</span></a>
+          <a class="button secondary" href="https://www.linkedin.com/in/vilayat-ali-mirza/" target="_blank" rel="noreferrer">Connect on LinkedIn ↗</a>
+        </div>
+        <div class="hero-note"><span class="dot"></span> Open to SDET and QA Automation opportunities in India</div>
+      </div>
+      <div class="hero-art" aria-hidden="true">
+        <div class="art-orbit"></div>
+        <div class="art-core">
+          <div class="art-top"><span>Quality pipeline</span><span class="art-status">Evidence first</span></div>
+          <h2>Trust the assertion.</h2>
+          <p>From business intent to a result you can inspect.</p>
+          <div class="code-line"><span class="number">01</span><span class="code-green">test.describe</span><span>business behaviour</span></div>
+          <div class="code-line"><span class="number">02</span><span class="code-orange">expect</span><span>state + invariants</span></div>
+          <div class="code-line"><span class="number">03</span><span class="code-green">trace</span><span>logs + evidence</span></div>
+        </div>
+        <div class="art-tag tag-a">UI · API · DATABASE</div>
+        <div class="art-tag tag-b">ASSERT WHAT MATTERS</div>
+      </div>
+    </section>
+
+    <div class="wrap">
+      <div class="stats" aria-label="Professional overview">
+        <div class="stat"><strong>5.3 yrs</strong><span>Overall IT experience</span></div>
+        <div class="stat"><strong>3.3 yrs</strong><span>QA and automation focus</span></div>
+        <div class="stat"><strong>03</strong><span>Public showcase projects</span></div>
+      </div>
+    </div>
+
+    <section class="wrap projects" id="projects">
+      <div class="section-head">
+        <div>
+          <div class="eyebrow mono">SELECTED WORK</div>
+          <h2>Three projects.<br>Three testing disciplines.</h2>
+        </div>
+        <p>Practical frameworks with visible architecture, test coverage, CI runs, and documented limitations. Browse the evidence, not just the badges.</p>
+      </div>
+
+      <div class="project-grid">
+        <article class="project-card featured">
+          <div>
+            <div class="project-meta"><span class="project-number">01 / PLAYWRIGHT</span><span class="pill">Featured project</span><span class="pill">TypeScript</span></div>
+            <h3>E-commerce end-to-end automation</h3>
+            <p>A Playwright + TypeScript framework for customer journeys on the public Tricentis Demo Web Shop. Covers authentication, catalogue, cart, checkout, account management, API-assisted setup, network behaviour, accessibility, and visual assertions.</p>
+            <div class="metric-strip">
+              <span class="metric">90 eligible functional tests</span>
+              <span class="metric">4-way sharded CI</span>
+              <span class="metric">POM + typed fixtures</span>
+            </div>
+            <div class="mini-visual" aria-hidden="true" style="min-height:104px">
+              <div class="visual-bars"><span></span><span></span><span></span><span></span><span></span></div>
+              <div class="flow-footer"><span>Spec coverage</span><span>Sharded execution</span><span>Report aggregation</span></div>
+            </div>
+            <div class="tech-list"><span>Playwright</span><span>TypeScript</span><span>GitHub Actions</span><span>axe-core</span><span>Faker</span></div>
+            <div class="project-links">
+              <a href="https://github.com/vilayatalimirza/ecommerce-playwright-framework" target="_blank" rel="noreferrer">Source repository ↗</a>
+              <a href="https://github.com/vilayatalimirza/ecommerce-playwright-framework#architecture-at-a-glance" target="_blank" rel="noreferrer">Architecture ↗</a>
+              <a href="https://github.com/vilayatalimirza/ecommerce-playwright-framework/actions/runs/44395124618" target="_blank" rel="noreferrer">Main CI run #63 ↗</a>
+            </div>
+          </div>
+          <aside class="project-side">
+            <div class="side-label">Documented main-run snapshot</div>
+            <div class="side-value">100%</div>
+            <div class="side-caption">Eventual functional success · 90/90 eligible tests · run #63</div>
+            <div class="side-rule"></div>
+            <div class="side-small">89 passed first try · 1 passed on retry (flaky) · 1 skipped · 0 final failures. A later documentation-PR run #65 failed the address-deletion test; it is separate from this main-branch snapshot.</div>
+          </aside>
+        </article>
+
+        <article class="project-card">
+          <div class="project-meta"><span class="project-number">02 / FINANCIAL QA</span><span class="pill">Risk-based testing</span></div>
+          <div class="mini-visual" aria-hidden="true">
+            <div class="money-flow">
+              <div class="flow-box"><strong>₹ SOURCE</strong><span>Before balance</span></div>
+              <div class="flow-arrow">→</div>
+              <div class="flow-box"><strong>CHECK</strong><span>Amount + rules</span></div>
+              <div class="flow-arrow">→</div>
+              <div class="flow-box"><strong>₹ TARGET</strong><span>After balance</span></div>
+            </div>
+            <div class="flow-footer"><span>Payment intent</span><span>Invariant checks</span><span>Evidence</span></div>
+          </div>
+          <h3>Banking QA automation platform</h3>
+          <p>Playwright tests for the public ParaBank demo, focused on money movement, account state, financial invariants, API/UI consistency, negative paths, security, accessibility, and traceability.</p>
+          <div class="metric-strip"><span class="metric">24 risk-scored requirements</span><span class="metric">21 defect reports</span></div>
+          <div class="tech-list"><span>Playwright</span><span>TypeScript</span><span>API testing</span><span>Financial assertions</span><span>CI evidence</span></div>
+          <div class="project-links">
+            <a href="https://github.com/vilayatalimirza/banking-qa-playwright" target="_blank" rel="noreferrer">Source repository ↗</a>
+            <a href="https://github.com/vilayatalimirza/banking-qa-playwright#architecture-at-a-glance" target="_blank" rel="noreferrer">Architecture ↗</a>
+            <a href="https://github.com/vilayatalimirza/banking-qa-playwright/actions/runs/44404360558" target="_blank" rel="noreferrer">Latest CI run #47 ↗</a>
+          </div>
+          <p class="muted" style="font-size:.76rem;margin-top:18px">Uses a shared public demo, not a production banking system. The latest CI run contains failures documented in the repository.</p>
+        </article>
+
+        <article class="project-card">
+          <div class="project-meta"><span class="project-number">03 / JAVA AUTOMATION</span><span class="pill">UI · API · DB</span></div>
+          <div class="mini-visual" aria-hidden="true">
+            <div class="stack-visual">
+              <div class="stack-tile">
+                <svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="13" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+                <strong>SELENIUM</strong>
+              </div>
+              <div class="stack-tile">
+                <svg viewBox="0 0 24 24"><path d="M5 6.5 12 3l7 3.5v11L12 21l-7-3.5z"/><path d="m5 6.5 7 4 7-4M12 10.5V21"/></svg>
+                <strong>REST API</strong>
+              </div>
+              <div class="stack-tile">
+                <svg viewBox="0 0 24 24"><ellipse cx="12" cy="5" rx="8" ry="3"/><path d="M4 5v7c0 1.7 3.6 3 8 3s8-1.3 8-3V5M4 12v7c0 1.7 3.6 3 8 3s8-1.3 8-3v-7"/></svg>
+                <strong>JDBC / SQL</strong>
+              </div>
+            </div>
+            <div class="stack-caption">Three separate test targets · one automation toolkit</div>
+          </div>
+          <h3>GreenKart automation framework</h3>
+          <p>A Java framework combining Selenium UI coverage, REST Assured examples against the external Reqres sample API, and a separate JDBC/MySQL test suite.</p>
+          <div class="metric-strip"><span class="metric">93/93 browser + API</span><span class="metric">2/2 database</span></div>
+          <div class="tech-list"><span>Java</span><span>Selenium</span><span>TestNG</span><span>REST Assured</span><span>JDBC / MySQL</span><span>Maven</span></div>
+          <div class="project-links">
+            <a href="https://github.com/vilayatalimirza/greenkart-selenium-framework" target="_blank" rel="noreferrer">Source repository ↗</a>
+            <a href="https://github.com/vilayatalimirza/greenkart-selenium-framework#architecture" target="_blank" rel="noreferrer">Architecture ↗</a>
+            <a href="https://github.com/vilayatalimirza/greenkart-selenium-framework/actions/runs/44404416313" target="_blank" rel="noreferrer">CI run #36 ↗</a>
+          </div>
+          <p class="muted" style="font-size:.76rem;margin-top:18px">The Reqres API and disposable MySQL service are separate from the public GreenKart demo backend.</p>
+        </article>
+      </div>
+      <p class="muted" style="font-size:.8rem;margin-top:18px">For deeper project notes, test evidence, runbooks, and reports, see the <a href="https://github.com/vilayatalimirza/vilayatalimirza/blob/main/PROJECT_INDEX.md" style="color:var(--mint);text-decoration:underline">portfolio project index</a>.</p>
+    </section>
+
+    <section class="about" id="about">
+      <div class="wrap about-grid">
+        <div>
+          <div class="eyebrow mono">THE ENGINEER</div>
+          <h2 class="about-title">Quality is a product decision, not a final checkbox.</h2>
+        </div>
+        <div>
+          <div class="about-copy">
+            <p>I have <strong>5.3 years of overall IT experience</strong>, including approximately <strong>3.3 years in software QA and automation</strong>, alongside an earlier foundation in enterprise support and operations.</p>
+            <p>My professional automation background is in <strong>Java, Selenium WebDriver, and TestNG</strong>. My portfolio demonstrates hands-on work with <strong>Playwright and TypeScript</strong>, API testing, SQL/JDBC validation, and CI automation.</p>
+            <p>I like tests that verify business outcomes, expose bad assumptions, and leave enough evidence for the next engineer to understand what happened.</p>
+          </div>
+          <div class="experience-row">
+            <div class="date">2023 — 2026</div>
+            <div><strong>Software QA & automation</strong><span>Functional, regression and integration testing · UI automation · API checks · SQL validation · CI execution</span></div>
+          </div>
+          <div class="experience-row">
+            <div class="date">2021 — 2022</div>
+            <div><strong>Enterprise support & operations</strong><span>Support queue coordination · SLA tracking · escalation management · stakeholder communication</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="wrap toolkit" id="toolkit">
+      <div class="section-head">
+        <div><div class="eyebrow mono">TECHNICAL TOOLKIT</div><h2>Tools I put to work.</h2></div>
+        <p>Grounded in professional experience and portfolio implementation. Developing skills are labelled separately rather than dressed up as production expertise.</p>
+      </div>
+      <div class="toolkit-grid">
+        <div class="tool-group"><h3>UI automation</h3><p>Java<br>Selenium WebDriver<br>TestNG<br>Playwright Test<br>TypeScript<br>Page Object Model</p></div>
+        <div class="tool-group"><h3>API & integration</h3><p>REST Assured<br>Postman<br>Playwright APIRequestContext<br>JSON schema validation<br>HTTP and network testing</p></div>
+        <div class="tool-group"><h3>Data & CI</h3><p>SQL · MySQL · JDBC<br>Maven · Git<br>GitHub Actions<br>GitLab CI experience<br>Reports and artifacts</p></div>
+        <div class="tool-group"><h3>Test engineering</h3><p>Functional and regression<br>Contract and negative tests<br>Risk-based testing<br>Accessibility checks<br>Traceability and defect evidence</p></div>
+      </div>
+      <p class="muted" style="font-size:.8rem;margin-top:17px">Currently developing: Python depth and GenAI/LLM quality-evaluation concepts.</p>
+    </section>
+
+    <section class="wrap principles">
+      <div class="section-head">
+        <div><div class="eyebrow mono">HOW I APPROACH QUALITY</div><h2>Test the risk.<br>Prove the outcome.</h2></div>
+      </div>
+      <div class="principle-grid">
+        <div class="principle"><div class="mono">01 / BUSINESS</div><h3>Start with intent</h3><p>Turn requirements and business risks into observable, testable outcomes.</p></div>
+        <div class="principle"><div class="mono">02 / ENGINEERING</div><h3>Verify the state</h3><p>Check balances, data, and system behaviour across UI, API, and database boundaries where supported.</p></div>
+        <div class="principle"><div class="mono">03 / EVIDENCE</div><h3>Make failures useful</h3><p>Keep retries, skips, defects, traces, logs, and reports visible so a green check means something.</p></div>
+      </div>
+    </section>
+
+    <section class="contact" id="contact">
+      <div class="wrap contact-inner">
+        <div>
+          <div class="eyebrow mono">NEXT STEP</div>
+          <h2>Let’s build software that deserves a green check.</h2>
+          <p>Open to SDET and QA Automation opportunities in India.</p>
+        </div>
+        <a class="button" href="https://www.linkedin.com/in/vilayat-ali-mirza/" target="_blank" rel="noreferrer">Connect on LinkedIn ↗</a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap footer-inner">
+      <span>© <span id="year">2026</span> Vilayat Ali Mirza · Built with care for the details.</span>
+      <div class="footer-links">
+        <a href="https://github.com/vilayatalimirza" target="_blank" rel="noreferrer">GitHub ↗</a>
+        <a href="https://www.linkedin.com/in/vilayat-ali-mirza/" target="_blank" rel="noreferrer">LinkedIn ↗</a>
+        <a href="https://github.com/vilayatalimirza/vilayatalimirza/blob/main/PROJECT_INDEX.md">Project index ↗</a>
+      </div>
+    </div>
+  </footer>
+  <script>
+    const toggle = document.querySelector('.menu-toggle');
+    const nav = document.querySelector('#primary-nav');
+    toggle.addEventListener('click', () => {
+      const open = nav.classList.toggle('open');
+      toggle.setAttribute('aria-expanded', String(open));
+      toggle.textContent = open ? '×' : '☰';
+    });
+    nav.querySelectorAll('a').forEach(link => link.addEventListener('click', () => {
+      nav.classList.remove('open');
+      toggle.setAttribute('aria-expanded', 'false');
+      toggle.textContent = '☰';
+    }));
+    document.querySelector('#year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
