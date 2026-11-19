@@ -8,6 +8,8 @@
   <meta property="og:type" content="website">
   <meta property="og:title" content="Vilayat Ali Mirza | QA Automation Engineer">
   <meta property="og:description" content="Testing beyond the happy path. Explore three practical QA automation projects, architecture and CI evidence.">
+  <meta property="og:url" content="https://vilayatalimirza.github.io/vilayatalimirza/">
+  <link rel="canonical" href="https://vilayatalimirza.github.io/vilayatalimirza/">
   <title>Vilayat Ali Mirza | QA Automation Engineer & SDET</title>
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -45,6 +47,8 @@
       -webkit-font-smoothing: antialiased;
     }
     a { color: inherit; text-decoration: none; }
+    .skip-link { position: fixed; z-index: 100; top: 10px; left: 10px; transform: translateY(-160%); background: var(--mint); color: #17241c; padding: 10px 14px; border-radius: 9px; font-weight: 700; }
+    .skip-link:focus { transform: translateY(0); }
     a:focus-visible, button:focus-visible { outline: 2px solid var(--mint); outline-offset: 4px; }
     .wrap { width: min(var(--max), calc(100% - 48px)); margin-inline: auto; }
     .mono { font: 500 .73rem/1.5 var(--mono); letter-spacing: .09em; text-transform: uppercase; }
@@ -59,9 +63,11 @@
     .nav-links a:hover { color: var(--ink); }
     .nav-links .nav-cta { color: var(--bg); background: var(--mint); padding: 10px 16px; border-radius: 999px; font-weight: 700; }
     .menu-toggle { display: none; background: transparent; color: var(--ink); border: 1px solid var(--line); border-radius: 9px; padding: 8px 10px; font-size: 1.1rem; }
-    .hero { padding: 100px 0 84px; min-height: 620px; display: grid; align-items: center; grid-template-columns: 1.1fr .9fr; gap: 56px; }
+    .hero { padding: 100px 0 84px; min-height: 620px; display: grid; align-items: center; grid-template-columns: 1.1fr .9fr; gap: 56px; position: relative; }
+    .hero::before { content: ""; position: absolute; width: 430px; height: 430px; right: 4%; top: 15%; border-radius: 50%; background: radial-gradient(circle, rgba(183,240,155,.09), transparent 68%); filter: blur(8px); pointer-events: none; }
+    .hero > * { position: relative; z-index: 1; }
     .hero h1 { font: 800 clamp(3rem, 6.2vw, 5.7rem)/1.02 var(--display); letter-spacing: -.075em; margin: 24px 0 22px; max-width: 760px; }
-    .hero h1 span { color: var(--mint); }
+    .hero h1 span { background: linear-gradient(100deg, #c8f7a5 0%, #91d982 56%, #ffbd8d 100%); color: transparent; -webkit-background-clip: text; background-clip: text; }
     .hero-copy { color: #c0ccc3; font-size: 1.08rem; max-width: 620px; line-height: 1.8; }
     .hero-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 34px; }
     .button { display: inline-flex; align-items: center; justify-content: center; gap: 10px; padding: 13px 19px; border-radius: 999px; font-weight: 700; font-size: .9rem; border: 1px solid var(--line); transition: transform .2s ease, background .2s ease, border-color .2s ease; }
@@ -71,7 +77,11 @@
     .hero-note { display: flex; align-items: center; gap: 9px; color: var(--muted); font-size: .83rem; margin-top: 28px; }
     .hero-note .dot { width: 7px; height: 7px; border-radius: 50%; background: var(--mint-strong); box-shadow: 0 0 0 5px rgba(145,217,130,.12); }
     .hero-art { position: relative; min-height: 390px; display: grid; place-items: center; }
-    .art-orbit { position: absolute; width: min(100%, 420px); aspect-ratio: 1; border: 1px solid rgba(183,240,155,.15); border-radius: 50%; transform: rotate(-20deg) scaleY(.78); }
+    .art-orbit { position: absolute; width: min(100%, 420px); aspect-ratio: 1; border: 1px solid rgba(183,240,155,.15); border-radius: 50%; transform: rotate(-20deg) scaleY(.78); animation: orbit-breathe 9s ease-in-out infinite; }
+    .hero-art::before, .hero-art::after { content: ""; position: absolute; width: 9px; height: 9px; border-radius: 50%; background: var(--mint); box-shadow: 0 0 22px rgba(183,240,155,.75); }
+    .hero-art::before { top: 17%; left: 18%; }
+    .hero-art::after { bottom: 15%; right: 13%; width: 6px; height: 6px; background: var(--orange); box-shadow: 0 0 20px rgba(255,173,120,.7); }
+    @keyframes orbit-breathe { 0%, 100% { transform: rotate(-20deg) scaleY(.78) scale(1); opacity: .8; } 50% { transform: rotate(-15deg) scaleY(.8) scale(1.025); opacity: 1; } }
     .art-orbit::before, .art-orbit::after { content: ""; position: absolute; border: 1px solid rgba(183,240,155,.12); border-radius: 50%; inset: 12%; }
     .art-orbit::after { inset: 26%; }
     .art-core { position: relative; width: min(100%, 340px); background: linear-gradient(145deg, rgba(37,62,57,.96), rgba(24,40,41,.98)); border: 1px solid rgba(183,240,155,.28); border-radius: 24px; padding: 27px; box-shadow: 0 28px 90px rgba(0,0,0,.27); transform: rotate(3deg); }
@@ -98,9 +108,33 @@
     .projects { padding-bottom: 112px; }
     .project-grid { display: grid; grid-template-columns: repeat(2,1fr); gap: 18px; }
     .project-card { position: relative; overflow: hidden; display: flex; flex-direction: column; min-height: 410px; background: linear-gradient(160deg, rgba(30,48,48,.98), rgba(22,37,38,.98)); border: 1px solid var(--line); border-radius: 20px; padding: 28px; transition: transform .22s ease, border-color .22s ease; }
-    .project-card:hover { transform: translateY(-4px); border-color: rgba(183,240,155,.37); }
+    .project-card:hover { transform: translateY(-4px); border-color: rgba(183,240,155,.37); box-shadow: 0 22px 60px rgba(0,0,0,.18); }
+    .project-card:hover .mini-visual { border-color: rgba(183,240,155,.3); }
+    .project-card, .project-side, .mini-visual { isolation: isolate; }
     .project-card.featured { grid-column: span 2; min-height: 365px; display: grid; grid-template-columns: 1.15fr .85fr; gap: 32px; }
     .project-card::after { content: ""; position: absolute; width: 250px; height: 250px; border-radius: 50%; border: 1px solid rgba(183,240,155,.08); right: -95px; top: -115px; pointer-events: none; }
+    .mini-visual { position: relative; min-height: 126px; overflow: hidden; border: 1px solid rgba(183,240,155,.13); border-radius: 13px; background: linear-gradient(125deg, rgba(8,19,19,.45), rgba(45,67,54,.32)); margin: 3px 0 21px; display: flex; align-items: center; justify-content: center; padding: 17px; }
+    .mini-visual::after { content: ""; position: absolute; inset: 0; background: linear-gradient(90deg, transparent, rgba(183,240,155,.035), transparent); transform: translateX(-100%); animation: scan 8s ease-in-out infinite; pointer-events: none; }
+    @keyframes scan { 0%, 50% { transform: translateX(-100%); } 85%, 100% { transform: translateX(100%); } }
+    .money-flow { width: 100%; display: grid; grid-template-columns: 1fr 34px 1fr 34px 1fr; gap: 5px; align-items: center; }
+    .flow-box { min-width: 0; padding: 12px 7px; text-align: center; border: 1px solid rgba(183,240,155,.2); border-radius: 9px; background: rgba(183,240,155,.055); }
+    .flow-box strong { display: block; color: #d9efcc; font: 500 .68rem var(--mono); }
+    .flow-box span { display: block; color: var(--muted); font-size: .61rem; margin-top: 4px; }
+    .flow-arrow { color: var(--mint); text-align: center; font: .95rem var(--mono); }
+    .flow-footer { position: absolute; bottom: 7px; left: 17px; right: 17px; display: flex; justify-content: space-between; color: #799186; font: .58rem var(--mono); letter-spacing: .07em; text-transform: uppercase; }
+    .stack-visual { display: grid; grid-template-columns: repeat(3,1fr); gap: 9px; width: 100%; }
+    .stack-tile { min-height: 79px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 8px; border: 1px solid rgba(183,240,155,.17); border-radius: 10px; background: rgba(183,240,155,.045); }
+    .stack-tile svg { width: 25px; height: 25px; stroke: var(--mint); fill: none; stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; }
+    .stack-tile:nth-child(2) svg { stroke: var(--orange); }
+    .stack-tile strong { font: .62rem var(--mono); color: #d9e8dc; letter-spacing: .04em; }
+    .stack-caption { position: absolute; bottom: 6px; left: 0; right: 0; text-align: center; color: #799186; font: .56rem var(--mono); letter-spacing: .08em; text-transform: uppercase; }
+    .visual-bars { display: flex; align-items: end; justify-content: center; gap: 7px; height: 92px; width: 100%; padding-bottom: 7px; }
+    .visual-bars span { display: block; width: 13%; max-width: 31px; border-radius: 5px 5px 2px 2px; background: linear-gradient(180deg, var(--mint), rgba(145,217,130,.16)); border: 1px solid rgba(183,240,155,.36); }
+    .visual-bars span:nth-child(1) { height: 38%; opacity: .55; }
+    .visual-bars span:nth-child(2) { height: 60%; opacity: .7; }
+    .visual-bars span:nth-child(3) { height: 82%; opacity: .85; }
+    .visual-bars span:nth-child(4) { height: 53%; }
+    .visual-bars span:nth-child(5) { height: 72%; opacity: .9; }
     .project-meta { display: flex; flex-wrap: wrap; align-items: center; gap: 9px; margin-bottom: 19px; }
     .project-number { font: .72rem var(--mono); color: var(--mint); }
     .pill { border: 1px solid var(--line); border-radius: 999px; padding: 4px 9px; color: var(--muted); font: .64rem var(--mono); letter-spacing: .04em; text-transform: uppercase; }
@@ -197,9 +231,17 @@
       .contact-inner { display: block; }
       .contact .button { margin-top: 24px; }
     }
+    @media (max-width: 640px) {
+      .money-flow { grid-template-columns: 1fr 19px 1fr 19px 1fr; gap: 2px; }
+      .flow-box { padding: 10px 3px; }
+      .flow-box strong { font-size: .57rem; }
+      .flow-box span { font-size: .54rem; }
+      .stack-tile { min-height: 71px; }
+      .stack-tile strong { font-size: .55rem; }
+    }
     @media (prefers-reduced-motion: reduce) {
       html { scroll-behavior: auto; }
-      *, *::before, *::after { transition-duration: .01ms !important; animation-duration: .01ms !important; }
+      *, *::before, *::after { transition-duration: .01ms !important; animation-duration: .01ms !important; animation-iteration-count: 1 !important; }
     }
   </style>
   <script type="application/ld+json">
@@ -221,6 +263,7 @@
   </script>
 </head>
 <body>
+  <a class="skip-link" href="#main-content">Skip to content</a>
   <header class="site-header">
     <div class="wrap nav">
       <a class="brand" href="#top" aria-label="Vilayat Ali Mirza home">
@@ -237,11 +280,11 @@
     </div>
   </header>
 
-  <main id="top">
-    <section class="wrap hero">
+  <main id="top" tabindex="-1">
+    <section class="wrap hero" aria-labelledby="hero-title">
       <div>
         <div class="eyebrow mono">QA AUTOMATION ENGINEER · SDET · INDIA</div>
-        <h1>I test beyond<br>the <span>happy path.</span></h1>
+        <h1 id="hero-title">I test beyond<br>the <span>happy path.</span></h1>
         <p class="hero-copy">I build automation that checks more than whether a button works. I care about business rules, data integrity, failure behaviour, and evidence that makes a result trustworthy.</p>
         <div class="hero-actions">
           <a class="button primary" href="#projects">Explore my work <span aria-hidden="true">↘</span></a>
@@ -249,7 +292,7 @@
         </div>
         <div class="hero-note"><span class="dot"></span> Open to SDET and QA Automation opportunities in India</div>
       </div>
-      <div class="hero-art" aria-label="Abstract test automation architecture illustration">
+      <div class="hero-art" aria-hidden="true">
         <div class="art-orbit"></div>
         <div class="art-core">
           <div class="art-top"><span>Quality pipeline</span><span class="art-status">Evidence first</span></div>
@@ -292,6 +335,10 @@
               <span class="metric">4-way sharded CI</span>
               <span class="metric">POM + typed fixtures</span>
             </div>
+            <div class="mini-visual" aria-hidden="true" style="min-height:104px">
+              <div class="visual-bars"><span></span><span></span><span></span><span></span><span></span></div>
+              <div class="flow-footer"><span>Spec coverage</span><span>Sharded execution</span><span>Report aggregation</span></div>
+            </div>
             <div class="tech-list"><span>Playwright</span><span>TypeScript</span><span>GitHub Actions</span><span>axe-core</span><span>Faker</span></div>
             <div class="project-links">
               <a href="https://github.com/vilayatalimirza/ecommerce-playwright-framework" target="_blank" rel="noreferrer">Source repository ↗</a>
@@ -310,6 +357,16 @@
 
         <article class="project-card">
           <div class="project-meta"><span class="project-number">02 / FINANCIAL QA</span><span class="pill">Risk-based testing</span></div>
+          <div class="mini-visual" aria-hidden="true">
+            <div class="money-flow">
+              <div class="flow-box"><strong>₹ SOURCE</strong><span>Before balance</span></div>
+              <div class="flow-arrow">→</div>
+              <div class="flow-box"><strong>CHECK</strong><span>Amount + rules</span></div>
+              <div class="flow-arrow">→</div>
+              <div class="flow-box"><strong>₹ TARGET</strong><span>After balance</span></div>
+            </div>
+            <div class="flow-footer"><span>Payment intent</span><span>Invariant checks</span><span>Evidence</span></div>
+          </div>
           <h3>Banking QA automation platform</h3>
           <p>Playwright tests for the public ParaBank demo, focused on money movement, account state, financial invariants, API/UI consistency, negative paths, security, accessibility, and traceability.</p>
           <div class="metric-strip"><span class="metric">24 risk-scored requirements</span><span class="metric">21 defect reports</span></div>
@@ -324,6 +381,23 @@
 
         <article class="project-card">
           <div class="project-meta"><span class="project-number">03 / JAVA AUTOMATION</span><span class="pill">UI · API · DB</span></div>
+          <div class="mini-visual" aria-hidden="true">
+            <div class="stack-visual">
+              <div class="stack-tile">
+                <svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="13" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+                <strong>SELENIUM</strong>
+              </div>
+              <div class="stack-tile">
+                <svg viewBox="0 0 24 24"><path d="M5 6.5 12 3l7 3.5v11L12 21l-7-3.5z"/><path d="m5 6.5 7 4 7-4M12 10.5V21"/></svg>
+                <strong>REST API</strong>
+              </div>
+              <div class="stack-tile">
+                <svg viewBox="0 0 24 24"><ellipse cx="12" cy="5" rx="8" ry="3"/><path d="M4 5v7c0 1.7 3.6 3 8 3s8-1.3 8-3V5M4 12v7c0 1.7 3.6 3 8 3s8-1.3 8-3v-7"/></svg>
+                <strong>JDBC / SQL</strong>
+              </div>
+            </div>
+            <div class="stack-caption">Three separate test targets · one automation toolkit</div>
+          </div>
           <h3>GreenKart automation framework</h3>
           <p>A Java framework combining Selenium UI coverage, REST Assured examples against the external Reqres sample API, and a separate JDBC/MySQL test suite.</p>
           <div class="metric-strip"><span class="metric">93/93 browser + API</span><span class="metric">2/2 database</span></div>
