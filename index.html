@@ -106,12 +106,12 @@
     .section-head h2 { font: 800 clamp(2rem, 4vw, 3rem)/1.12 var(--display); letter-spacing: -.06em; margin: 13px 0 0; }
     .section-head p { max-width: 440px; color: var(--muted); margin: 0; font-size: .93rem; }
     .projects { padding-bottom: 112px; }
-    .project-grid { display: grid; grid-template-columns: repeat(2,1fr); gap: 18px; }
+    .project-grid { display: grid; grid-template-columns: 1fr; gap: 18px; }
     .project-card { position: relative; overflow: hidden; display: flex; flex-direction: column; min-height: 410px; background: linear-gradient(160deg, rgba(30,48,48,.98), rgba(22,37,38,.98)); border: 1px solid var(--line); border-radius: 20px; padding: 28px; transition: transform .22s ease, border-color .22s ease; }
     .project-card:hover { transform: translateY(-4px); border-color: rgba(183,240,155,.37); box-shadow: 0 22px 60px rgba(0,0,0,.18); }
     .project-card:hover .mini-visual { border-color: rgba(183,240,155,.3); }
     .project-card, .project-side, .mini-visual { isolation: isolate; }
-    .project-card.featured { grid-column: span 2; min-height: 365px; display: grid; grid-template-columns: 1.15fr .85fr; gap: 32px; }
+    .project-card.featured { grid-column: 1 / -1; min-height: 365px; display: grid; grid-template-columns: 1.15fr .85fr; gap: 32px; }
     .project-card::after { content: ""; position: absolute; width: 250px; height: 250px; border-radius: 50%; border: 1px solid rgba(183,240,155,.08); right: -95px; top: -115px; pointer-events: none; }
     .mini-visual { position: relative; min-height: 126px; overflow: hidden; border: 1px solid rgba(183,240,155,.13); border-radius: 13px; background: linear-gradient(125deg, rgba(8,19,19,.45), rgba(45,67,54,.32)); margin: 3px 0 21px; display: flex; align-items: center; justify-content: center; padding: 17px; }
     .mini-visual::after { content: ""; position: absolute; inset: 0; background: linear-gradient(90deg, transparent, rgba(183,240,155,.035), transparent); transform: translateX(-100%); animation: scan 8s ease-in-out infinite; pointer-events: none; }
@@ -350,7 +350,7 @@
       <div class="project-grid">
         <article class="project-card featured">
           <div>
-            <div class="project-meta"><span class="project-number">01 / PLAYWRIGHT</span><span class="pill">Featured project</span><span class="pill">TypeScript</span></div>
+            <div class="project-meta"><span class="project-number">01 / PLAYWRIGHT</span><span class="pill">End-to-end QA</span><span class="pill">TypeScript</span></div>
             <h3>E-commerce end-to-end automation</h3>
             <p>A Playwright + TypeScript framework for customer journeys on the public Tricentis Demo Web Shop. Covers authentication, catalogue, cart, checkout, account management, API-assisted setup, network behaviour, accessibility, and visual assertions.</p>
             <div class="metric-strip">
@@ -370,67 +370,93 @@
             </div>
           </div>
           <aside class="project-side">
-            <div class="side-label">Documented main-run snapshot</div>
+            <div class="side-label">Documented main-run snapshot · #63</div>
             <div class="side-value">100%</div>
-            <div class="side-caption">Eventual functional success · 90/90 eligible tests · run #63</div>
+            <div class="side-caption">Eventual functional success · 90/90 eligible tests</div>
             <div class="side-rule"></div>
             <div class="side-small">89 passed first try · 1 passed on retry (flaky) · 1 skipped · 0 final failures. A later documentation-PR run #65 failed the address-deletion test; it is separate from this main-branch snapshot.</div>
           </aside>
         </article>
 
-        <article class="project-card">
-          <div class="project-meta"><span class="project-number">02 / FINANCIAL QA</span><span class="pill">Risk-based testing</span></div>
-          <div class="mini-visual" aria-hidden="true">
-            <div class="money-flow">
-              <div class="flow-box"><strong>₹ SOURCE</strong><span>Before balance</span></div>
-              <div class="flow-arrow">→</div>
-              <div class="flow-box"><strong>CHECK</strong><span>Amount + rules</span></div>
-              <div class="flow-arrow">→</div>
-              <div class="flow-box"><strong>₹ TARGET</strong><span>After balance</span></div>
+        <article class="project-card featured">
+          <div>
+            <div class="project-meta"><span class="project-number">02 / FINANCIAL QA</span><span class="pill">Risk-based testing</span><span class="pill">Playwright</span></div>
+            <h3>Banking QA automation platform</h3>
+            <p>Playwright tests for the public ParaBank demo, focused on money movement, account state, financial invariants, API/UI consistency, negative paths, security, accessibility, and traceability.</p>
+            <div class="metric-strip">
+              <span class="metric">24 risk-scored requirements</span>
+              <span class="metric">21 defect reports</span>
+              <span class="metric">Financial invariants</span>
             </div>
-            <div class="flow-footer"><span>Payment intent</span><span>Invariant checks</span><span>Evidence</span></div>
+            <div class="mini-visual" aria-hidden="true" style="min-height:104px">
+              <div class="money-flow">
+                <div class="flow-box"><strong>₹ SOURCE</strong><span>Before balance</span></div>
+                <div class="flow-arrow">→</div>
+                <div class="flow-box"><strong>CHECK</strong><span>Amount + rules</span></div>
+                <div class="flow-arrow">→</div>
+                <div class="flow-box"><strong>₹ TARGET</strong><span>After balance</span></div>
+              </div>
+              <div class="flow-footer"><span>Payment intent</span><span>Invariant checks</span><span>Evidence</span></div>
+            </div>
+            <div class="tech-list"><span>Playwright</span><span>TypeScript</span><span>API testing</span><span>Financial assertions</span><span>CI evidence</span></div>
+            <div class="project-links">
+              <a href="https://github.com/vilayatalimirza/banking-qa-playwright" target="_blank" rel="noreferrer">Source repository ↗</a>
+              <a href="https://github.com/vilayatalimirza/banking-qa-playwright#architecture-at-a-glance" target="_blank" rel="noreferrer">Architecture ↗</a>
+              <a href="https://github.com/vilayatalimirza/banking-qa-playwright/actions/runs/44404360558" target="_blank" rel="noreferrer">Latest CI run #47 ↗</a>
+            </div>
+            <p class="muted" style="font-size:.76rem;margin-top:18px">Uses a shared public demo, not a production banking system. The latest CI run contains failures documented in the repository.</p>
           </div>
-          <h3>Banking QA automation platform</h3>
-          <p>Playwright tests for the public ParaBank demo, focused on money movement, account state, financial invariants, API/UI consistency, negative paths, security, accessibility, and traceability.</p>
-          <div class="metric-strip"><span class="metric">24 risk-scored requirements</span><span class="metric">21 defect reports</span></div>
-          <div class="tech-list"><span>Playwright</span><span>TypeScript</span><span>API testing</span><span>Financial assertions</span><span>CI evidence</span></div>
-          <div class="project-links">
-            <a href="https://github.com/vilayatalimirza/banking-qa-playwright" target="_blank" rel="noreferrer">Source repository ↗</a>
-            <a href="https://github.com/vilayatalimirza/banking-qa-playwright#architecture-at-a-glance" target="_blank" rel="noreferrer">Architecture ↗</a>
-            <a href="https://github.com/vilayatalimirza/banking-qa-playwright/actions/runs/44404360558" target="_blank" rel="noreferrer">Latest CI run #47 ↗</a>
-          </div>
-          <p class="muted" style="font-size:.76rem;margin-top:18px">Uses a shared public demo, not a production banking system. The latest CI run contains failures documented in the repository.</p>
+          <aside class="project-side">
+            <div class="side-label">Documented aggregate snapshot · #45</div>
+            <div class="side-value">89.3%</div>
+            <div class="side-caption">Aggregate execution pass rate · 175/196 executions</div>
+            <div class="side-rule"></div>
+            <div class="side-small">Latest run #47 is mixed: 4/9 Chromium modules passed; all 3 browser-smoke jobs and visual regression failed. Unit tests and report aggregation passed. The 89.3% figure belongs to earlier run #45, not the latest run.</div>
+          </aside>
         </article>
 
-        <article class="project-card">
-          <div class="project-meta"><span class="project-number">03 / JAVA AUTOMATION</span><span class="pill">UI · API · DB</span></div>
-          <div class="mini-visual" aria-hidden="true">
-            <div class="stack-visual">
-              <div class="stack-tile">
-                <svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="13" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
-                <strong>SELENIUM</strong>
-              </div>
-              <div class="stack-tile">
-                <svg viewBox="0 0 24 24"><path d="M5 6.5 12 3l7 3.5v11L12 21l-7-3.5z"/><path d="m5 6.5 7 4 7-4M12 10.5V21"/></svg>
-                <strong>REST API</strong>
-              </div>
-              <div class="stack-tile">
-                <svg viewBox="0 0 24 24"><ellipse cx="12" cy="5" rx="8" ry="3"/><path d="M4 5v7c0 1.7 3.6 3 8 3s8-1.3 8-3V5M4 12v7c0 1.7 3.6 3 8 3s8-1.3 8-3v-7"/></svg>
-                <strong>JDBC / SQL</strong>
-              </div>
+        <article class="project-card featured">
+          <div>
+            <div class="project-meta"><span class="project-number">03 / JAVA AUTOMATION</span><span class="pill">UI · API · DB</span><span class="pill">Java</span></div>
+            <h3>GreenKart automation framework</h3>
+            <p>A Java framework combining Selenium UI coverage, REST Assured examples against the external Reqres sample API, and a separate JDBC/MySQL test suite.</p>
+            <div class="metric-strip">
+              <span class="metric">93/93 browser + API</span>
+              <span class="metric">2/2 database</span>
+              <span class="metric">Separate test suites</span>
             </div>
-            <div class="stack-caption">Three separate test targets · one automation toolkit</div>
+            <div class="mini-visual" aria-hidden="true" style="min-height:104px">
+              <div class="stack-visual">
+                <div class="stack-tile">
+                  <svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="13" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+                  <strong>SELENIUM</strong>
+                </div>
+                <div class="stack-tile">
+                  <svg viewBox="0 0 24 24"><path d="M5 6.5 12 3l7 3.5v11L12 21l-7-3.5z"/><path d="m5 6.5 7 4 7-4M12 10.5V21"/></svg>
+                  <strong>REST API</strong>
+                </div>
+                <div class="stack-tile">
+                  <svg viewBox="0 0 24 24"><ellipse cx="12" cy="5" rx="8" ry="3"/><path d="M4 5v7c0 1.7 3.6 3 8 3s8-1.3 8-3V5M4 12v7c0 1.7 3.6 3 8 3s8-1.3 8-3v-7"/></svg>
+                  <strong>JDBC / SQL</strong>
+                </div>
+              </div>
+              <div class="stack-caption">Three separate test targets · one automation toolkit</div>
+            </div>
+            <div class="tech-list"><span>Java</span><span>Selenium</span><span>TestNG</span><span>REST Assured</span><span>JDBC / MySQL</span><span>Maven</span></div>
+            <div class="project-links">
+              <a href="https://github.com/vilayatalimirza/greenkart-selenium-framework" target="_blank" rel="noreferrer">Source repository ↗</a>
+              <a href="https://github.com/vilayatalimirza/greenkart-selenium-framework#architecture" target="_blank" rel="noreferrer">Architecture ↗</a>
+              <a href="https://github.com/vilayatalimirza/greenkart-selenium-framework/actions/runs/44404416313" target="_blank" rel="noreferrer">Latest successful CI · #36 ↗</a>
+            </div>
+            <p class="muted" style="font-size:.76rem;margin-top:18px">The Reqres API and disposable MySQL service are separate from the public GreenKart demo backend.</p>
           </div>
-          <h3>GreenKart automation framework</h3>
-          <p>A Java framework combining Selenium UI coverage, REST Assured examples against the external Reqres sample API, and a separate JDBC/MySQL test suite.</p>
-          <div class="metric-strip"><span class="metric">93/93 browser + API</span><span class="metric">2/2 database</span></div>
-          <div class="tech-list"><span>Java</span><span>Selenium</span><span>TestNG</span><span>REST Assured</span><span>JDBC / MySQL</span><span>Maven</span></div>
-          <div class="project-links">
-            <a href="https://github.com/vilayatalimirza/greenkart-selenium-framework" target="_blank" rel="noreferrer">Source repository ↗</a>
-            <a href="https://github.com/vilayatalimirza/greenkart-selenium-framework#architecture" target="_blank" rel="noreferrer">Architecture ↗</a>
-            <a href="https://github.com/vilayatalimirza/greenkart-selenium-framework/actions/runs/44404416313" target="_blank" rel="noreferrer">CI run #36 ↗</a>
-          </div>
-          <p class="muted" style="font-size:.76rem;margin-top:18px">The Reqres API and disposable MySQL service are separate from the public GreenKart demo backend.</p>
+          <aside class="project-side">
+            <div class="side-label">Latest successful CI · #36</div>
+            <div class="side-value">100%</div>
+            <div class="side-caption">All reported checks passed · both suites green</div>
+            <div class="side-rule"></div>
+            <div class="side-small">93/93 browser/API tests passed, plus 2/2 tests in the separate database suite. The Reqres API examples and disposable MySQL service are reported separately from the GreenKart demo backend.</div>
+          </aside>
         </article>
       </div>
       <p class="muted" style="font-size:.8rem;margin-top:18px">For deeper project notes, test evidence, runbooks, and reports, see the <a href="https://github.com/vilayatalimirza/vilayatalimirza/blob/main/PROJECT_INDEX.md" style="color:var(--mint);text-decoration:underline">portfolio project index</a>.</p>
