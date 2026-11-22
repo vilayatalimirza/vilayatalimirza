@@ -8,7 +8,6 @@
   <meta property="og:type" content="website">
   <meta property="og:title" content="Vilayat Ali Mirza | QA Automation Engineer">
   <meta property="og:description" content="Testing beyond the happy path. Explore three practical QA automation projects, architecture and CI evidence.">
-  <meta property="og:image" content="https://raw.githubusercontent.com/vilayatalimirza/vilayatalimirza/main/assets/vilayat-profile.webp">
   <meta property="og:url" content="https://vilayatalimirza.github.io/vilayatalimirza/">
   <link rel="canonical" href="https://vilayatalimirza.github.io/vilayatalimirza/">
   <title>VM | Vilayat Ali Mirza · QA Automation Engineer &amp; SDET</title>
@@ -78,61 +77,6 @@
     .hero-note { display: flex; align-items: center; gap: 9px; color: var(--muted); font-size: .83rem; margin-top: 28px; }
     .hero-note .dot { width: 7px; height: 7px; border-radius: 50%; background: var(--mint-strong); box-shadow: 0 0 0 5px rgba(145,217,130,.12); }
     .hero-art { position: relative; min-height: 390px; display: grid; place-items: center; }
-    .hero-art.profile-hero { min-height: 500px; isolation: isolate; }
-    .portrait-backdrop {
-      position: absolute;
-      width: min(96%, 420px);
-      aspect-ratio: 1;
-      border-radius: 50%;
-      border: 1px solid rgba(183,240,155,.16);
-      background: radial-gradient(circle, rgba(183,240,155,.13), rgba(183,240,155,.025) 58%, transparent 70%);
-      transform: translate(4%, 2%);
-    }
-    .portrait-frame {
-      position: relative;
-      z-index: 1;
-      width: min(100%, 352px);
-      aspect-ratio: 4 / 5;
-      overflow: hidden;
-      border-radius: 180px 180px 28px 28px;
-      border: 1px solid rgba(183,240,155,.4);
-      background: #f7f7f3;
-      box-shadow: 0 30px 85px rgba(0,0,0,.32), 0 0 0 9px rgba(183,240,155,.035);
-      transform: rotate(1deg);
-    }
-    .portrait-frame img {
-      display: block;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      object-position: center 42%;
-    }
-    .portrait-chip {
-      position: absolute;
-      z-index: 2;
-      padding: 11px 14px;
-      border-radius: 11px;
-      border: 1px solid rgba(183,240,155,.22);
-      color: var(--mint);
-      background: rgba(28,47,43,.96);
-      box-shadow: 0 14px 35px rgba(0,0,0,.25);
-      font: .68rem var(--mono);
-      letter-spacing: .055em;
-      white-space: nowrap;
-    }
-    .portrait-chip.role { top: 15%; right: -1%; transform: rotate(4deg); }
-    .portrait-chip.proof { bottom: 12%; left: -1%; transform: rotate(-4deg); color: #ffd1ae; border-color: rgba(255,173,120,.28); }
-    .portrait-chip.proof::before {
-      content: "";
-      display: inline-block;
-      width: 6px;
-      height: 6px;
-      margin-right: 8px;
-      border-radius: 50%;
-      background: var(--orange);
-      box-shadow: 0 0 12px rgba(255,173,120,.7);
-      vertical-align: 1px;
-    }
     .art-orbit { position: absolute; width: min(100%, 420px); aspect-ratio: 1; border: 1px solid rgba(183,240,155,.15); border-radius: 50%; transform: rotate(-20deg) scaleY(.78); animation: orbit-breathe 9s ease-in-out infinite; }
     .hero-art::before, .hero-art::after { content: ""; position: absolute; width: 9px; height: 9px; border-radius: 50%; background: var(--mint); box-shadow: 0 0 22px rgba(183,240,155,.75); }
     .hero-art::before { top: 17%; left: 18%; }
@@ -268,7 +212,6 @@
     @media (max-width: 880px) {
       .hero { grid-template-columns: 1fr; gap: 10px; padding-top: 78px; }
       .hero-art { min-height: 350px; max-width: 500px; width: 100%; margin-inline: auto; }
-      .hero-art.profile-hero { min-height: 450px; }
       .project-card.featured { grid-template-columns: 1fr; }
       .project-side { min-height: 230px; }
       .toolkit-grid { grid-template-columns: repeat(2,1fr); }
@@ -286,11 +229,6 @@
       .hero h1 { font-size: clamp(3rem, 14vw, 4.4rem); }
       .hero-copy { font-size: .98rem; }
       .hero-art { min-height: 310px; }
-      .hero-art.profile-hero { min-height: 390px; }
-      .portrait-frame { width: min(76vw, 300px); }
-      .portrait-chip { font-size: .59rem; padding: 9px 10px; }
-      .portrait-chip.role { right: 0; }
-      .portrait-chip.proof { left: 0; }
       .art-core { width: 290px; padding: 21px; }
       .tag-a { right: 0; }
       .tag-b { left: 0; }
@@ -377,13 +315,18 @@
         </div>
         <div class="hero-note"><span class="dot"></span> Open to SDET and QA Automation opportunities in India</div>
       </div>
-      <div class="hero-art profile-hero">
-        <div class="portrait-backdrop" aria-hidden="true"></div>
-        <div class="portrait-frame">
-          <img src="assets/vilayat-profile.webp" alt="Vilayat Ali Mirza in a navy suit and red tie">
+      <div class="hero-art" aria-hidden="true">
+        <div class="art-orbit"></div>
+        <div class="art-core">
+          <div class="art-top"><span>Quality pipeline</span><span class="art-status">Evidence first</span></div>
+          <h2>Trust the assertion.</h2>
+          <p>From business intent to a result you can inspect.</p>
+          <div class="code-line"><span class="number">01</span><span class="code-green">test.describe</span><span>business behaviour</span></div>
+          <div class="code-line"><span class="number">02</span><span class="code-orange">expect</span><span>state + invariants</span></div>
+          <div class="code-line"><span class="number">03</span><span class="code-green">trace</span><span>logs + evidence</span></div>
         </div>
-        <div class="portrait-chip role">JAVA · SELENIUM · PLAYWRIGHT</div>
-        <div class="portrait-chip proof">QUALITY ENGINEERING</div>
+        <div class="art-tag tag-a">UI · API · DATABASE</div>
+        <div class="art-tag tag-b">ASSERT WHAT MATTERS</div>
       </div>
     </section>
 
